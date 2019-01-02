@@ -57,9 +57,10 @@ PunishmentManager.get().getCurrentWarns(uuid);
 // Returns the count of a players current warnings
 
 //Create a new Punishment:
-new Punishment(name, uuid, reason, operator, type, start, end, calculation, id).create();
+new Punishment(name, uuid, ip, reason, operator, type, start, end, calculation, id).create();
 // name - The users name
 // uuid - The users uuid
+// ip - IP adress user
 // reason - The punishment reason | Can be null or a layout like "#LayoutName" or a basic reason "Hacking in FFA"
 // operator - The one who banned | You can just use "CONSOLE"
 // type - The Type of the Punishment from the PunishmentType-Enum
