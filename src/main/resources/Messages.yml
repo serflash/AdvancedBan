@@ -17,7 +17,7 @@ Ban:
   Exempt: "&7You are not able to ban &c&o%NAME%"
   Layout:
   - '%PREFIX% &7Permanently banned'
-  - '&7'
+  - '&8You IP Adress: &7%IP%'
   - '&7'
   - "&cReason &8\xbb &7%REASON%"
   - '&7'
