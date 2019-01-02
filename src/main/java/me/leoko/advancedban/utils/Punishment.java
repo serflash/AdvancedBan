@@ -23,12 +23,14 @@ public class Punishment {
     private final PunishmentType type;
 
     private String reason;
+    private String ip;
     private int id;
 
-    public Punishment(String name, String uuid, String reason, String operator, PunishmentType type, long start, long end, String calculation, int id) {
+    public Punishment(String name, String ip, String uuid, String reason, String operator, PunishmentType type, long start, long end, String calculation, int id) {
         this.name = name;
         this.uuid = uuid;
         this.reason = reason;
+        this.ip = ip;
         this.operator = operator;
         this.type = type;
         this.start = start;
@@ -48,7 +50,11 @@ public class Punishment {
     public String getReason() {
         return (reason == null ? mi.getString(mi.getConfig(), "DefaultReason", "none") : reason).replaceAll("'", "");
     }
-
+    
+    public String getIp() {
+        return ip;
+    }
+    
     public String getOperator() {
         return operator;
     }
@@ -171,6 +177,7 @@ public class Punishment {
                 "DURATION", getDuration(true),
                 "REASON", getReason(),
                 "NAME", getName(),
+                "IP", getIp(),
                 "ID", String.valueOf(id),
                 "HEXID", getHexId(),
                 "DATE", getDate(start),
@@ -218,6 +225,8 @@ public class Punishment {
                 "PREFIX", mi.getBoolean(mi.getConfig(), "Disable Prefix", false) ? "" : MessageManager.getMessage("General.Prefix"),
                 "DURATION", getDuration(false),
                 "REASON", isLayout ? (getReason().split(" ").length < 2 ? "" : getReason().substring(getReason().split(" ")[0].length() + 1)) : getReason(),
+                "NAME", getName(),
+                "IP", getIp(),
                 "HEXID", getHexId(),
                 "ID", String.valueOf(id),
                 "DATE", getDate(start),
@@ -276,6 +285,7 @@ public class Punishment {
                 + ", name='" + name + '\''
                 + ", uuid='" + uuid + '\''
                 + ", reason='" + reason + '\''
+                + ", ip='" + ip + '\''
                 + ", operator='" + operator + '\''
                 + ", start=" + start
                 + ", end=" + end
