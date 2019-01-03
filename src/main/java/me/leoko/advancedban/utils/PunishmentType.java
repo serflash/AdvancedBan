@@ -39,7 +39,7 @@ public enum PunishmentType {
             case "tempipban":
             case "tipban":
             case "tempbanip"
-            case "tempban-ip
+            case "tempban-ip"
                 return TEMP_IP_BAN;
             case "mute":
                 return MUTE;
